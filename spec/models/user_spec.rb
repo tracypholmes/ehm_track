@@ -26,7 +26,7 @@ RSpec.describe User, type: :model do
   it 'is invalid without an email address' do
     user = User.new(email: "jjj$me.com")
     expect(user).to be_valid
-  end
+    end
   
   it 'is invalid with a duplicate email address' do
     User.create(
