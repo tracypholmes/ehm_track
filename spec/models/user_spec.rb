@@ -43,8 +43,4 @@ RSpec.describe User, type: :model do
     )
     expect(user).to_not be_valid
   end
-
-
-
-  # it "returns a user's full name as a string"
 end
