@@ -1,6 +1,6 @@
 # eHM Track
 
-ehm_track is a health and management tracker for tracking health issues - including medication and symptoms.
+ehm_track is a health and management tracker for tracking health issues - including medication and symptoms. You can see it in action on Heroku >> [eHM Track](https://ehm-track.herokuapp.com)
 
 ## Thoughts
 
