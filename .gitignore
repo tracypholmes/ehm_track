@@ -4,8 +4,33 @@
 # or operating system, you probably want to add a global ignore instead:
 #   git config --global core.excludesfile '~/.gitignore_global'
 
+*.rbc
+capybara-*.html
+.rspec
+/public/system
+/coverage/
+*.orig
+rerun.txt
+pickle-email-*.html
+
+# TODO Comment out this rule if you are OK with secrets being uploaded to the repo
+config/initializers/secret_token.rb
+
+# Only include if you have production secrets in this file, which is no longer a Rails default
+# config/secrets.yml
+
+# dotenv
+# TODO Comment out this rule if environment variables can be committed
+.env
+
 # Ignore bundler config.
 /.bundle
+
+## Environment normalization:
+/vendor/bundle
+
+# these should all be checked in to normalize the environment:
+# Gemfile.lock, .ruby-version, .ruby-gemset
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -16,6 +41,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
+/spec/tmp
 
 /node_modules
 /yarn-error.log
