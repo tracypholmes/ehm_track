@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_methods :current_user, :logged_in?, :authenticate_user!
+  helper_method :current_user, :logged_in?, :authenticate_user!
 
   # The Helper methods needed to help us in our controllers and our views
   #   is_logged_in?
