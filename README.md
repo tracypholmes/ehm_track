@@ -4,7 +4,7 @@ ehm_track is a health and management tracker for tracking health issues - includ
 
 ## Thoughts
 
-This is my third official project for Flatiron School. I again wanted to build something I could use or someone in my family could use to make managing health issues easier. I can honestly say I am very excited at the all of the possibilities I am finding in Rails! The most exciting thing so far was my research into using Devise or "Rolling My Own".
+This is my third official project for Flatiron School. I again wanted to build something I could use or someone in my family could use to make managing health issues easier. I can honestly say I am very excited at the all of the possibilities I am finding in Rails! The most exciting thing so far was my research into using Devise or "Rolling My Own". I do realize that for security purposes, storing passwords just isn't secure at all. But for the purposes of this project, I felt building my auth was the best way to understand things. I also have Google OAuth included.
 
 My parents are older and my grandmother isn't well, so having something that will allow me to track her symptoms and medication will be very helpful. Ideally, the health issues are unique, as are the dosage, frequency, etc of the medication. You are able to select a symptom to assign to the issue, and also add notes. As I have a few things going on of my own and have a few friends that suffer from allergies or diabetes, I feel this could really turn into something useful.
 
