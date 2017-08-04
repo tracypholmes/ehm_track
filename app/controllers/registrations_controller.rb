@@ -13,7 +13,7 @@ class RegistrationsController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to health_path
+      redirect_to issue_path
     else
       render :new
     end

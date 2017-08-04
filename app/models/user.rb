@@ -1,7 +1,7 @@
 class User < ApplicationRecord
-  has_many :user_health  
-  has_many :health, through: :user_health  
-  has_many :medications, through: :health  
+  has_many :user_issue  
+  has_many :issue, through: :user_issue  
+  has_many :medications, through: :issue  
   has_secure_password
   
   validates :name, :username, :email, presence: true, uniqueness: true 

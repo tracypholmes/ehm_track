@@ -11,7 +11,7 @@ def new
     @user = User.find_by(email: params[:user][:email])
     if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
-      redirect_to health_path
+      redirect_to issue_path
     else
       render :new
     end
