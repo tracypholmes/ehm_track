@@ -10,11 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170804051757) do
+ActiveRecord::Schema.define(version: 20170804055014) do
+
+  create_table "issue_medications", force: :cascade do |t|
+    t.integer "issue_id"
+    t.integer "medication_id"
+    t.integer "dosage"
+    t.string "frequency"
+    t.date "date_started"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "issues", force: :cascade do |t|
     t.string "issue_name"
     t.date "date_started"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "medications", force: :cascade do |t|
+    t.string "medication_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "symptoms", force: :cascade do |t|
+    t.integer "user_issue_id"
+    t.string "symptom_name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "user_issues", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "issue_id"
+    t.integer "symptom_id"
+    t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
