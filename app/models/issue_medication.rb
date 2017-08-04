@@ -1,0 +1,2 @@
+class IssueMedication < ApplicationRecord
+end
