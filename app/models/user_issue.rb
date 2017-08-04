@@ -1,0 +1,2 @@
+class UserIssue < ApplicationRecord
+end
