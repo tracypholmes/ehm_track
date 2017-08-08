@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     @user = User.new
     # load a form for a User object
   end
-  
+
   def create
     @user = User.find_by(email: params[:user][:email])
     if @user && @user.authenticate(params[:user][:password])
