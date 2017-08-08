@@ -2,7 +2,7 @@ class SessionsController < ApplicationController
   # A form to login a user with email and password
   #   User login
   #   User logout
-def new
+  def new
     @user = User.new
     # load a form for a User object
   end
