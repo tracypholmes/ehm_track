@@ -6,7 +6,9 @@ class ApplicationController < ActionController::Base
   #   is_logged_in?
   #   current_user
   #   authenticate_user! (if user isn't logged in, send them to a login screen)
-  def index; end
+  def index
+    render html: "Welcome!"
+  end
 
   private
 
