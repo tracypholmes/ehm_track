@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :issues
   resources :medications
   # root path
   root to: 'application#index'
