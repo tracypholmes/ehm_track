@@ -5,6 +5,7 @@ class SessionsController < ApplicationController
   def new
     @user = User.new
     # load a form for a User object
+    render :new
   end
 
   def create

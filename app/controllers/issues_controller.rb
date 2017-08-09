@@ -11,6 +11,7 @@ class IssuesController < ApplicationController
 
   def new
     @issue = Issue.new
+    render :new
   end
 
   def create
