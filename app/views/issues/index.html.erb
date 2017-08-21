@@ -1,6 +1,26 @@
 I guess this is where my list of issues for my current user would go. IssuesController#index
-<h1>SURPRISE!</h1>
+<h1>Listing Issues</h1>
 
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Date Started</th>
+  </tr>
+
+  <% @issues.each do |issue| %>
+    <tr>
+      <td>
+        <%= issue.issue_name %>
+      </td>
+      <td>
+        <%= issue.date_started %>
+      </td>
+      <td>
+        <%= link_to 'Show', issue_path(issue) %>
+      </td>
+    </tr>
+    <% end %>
+</table>
 I need a button here that will allow the user to add a new issue.
 
 Needs to hit this action issues#new
