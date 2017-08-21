@@ -7,7 +7,22 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
+  <header class='clearfix'>
+    <div class="left-nav">
+      <ul>
+        <li>
+          <%= link_to "Home", issues_path %>
+        </li>
+      </ul>
+    </div>
+    <div class="right-nav">
+      <ul>
+        <li>
+          <%= link_to "Add Issue", new_issue_path %>
+        </li>
+      </ul>
+    </div>
+  </header>
   <body>
     <p class="notice">
       <%= notice %>
@@ -15,7 +30,8 @@
     <p class="alert">
       <%= alert %>
     </p>
-    
-    <%= yield %>
+    <div class='content'>
+      <%= yield %>
+    </div>
   </body>
 </html>
