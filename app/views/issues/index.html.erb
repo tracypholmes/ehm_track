@@ -15,9 +15,18 @@ IssuesController#index
       <td>
         <%= issue.date_started %>
       </td>
-      <!-- <td>
-        <%= link_to 'Show', issue_path(issue) %>
-      </td> -->
+      <td>
+        <h5>
+          <%= link_to "Edit Issue", edit_issue_path(issue)%>
+        </h5>
+      </td>
+      <td>
+        <h5>
+          <%= link_to 'Delete Issue', issue, method: :delete %>
+        </h5>
+        </h5>
+      </td>
+
     </tr>
     <% end %>
 </table>
