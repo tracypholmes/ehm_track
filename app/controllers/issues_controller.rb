@@ -29,7 +29,7 @@ class IssuesController < ApplicationController
 
   def update
     @issue = Issue.find(params[:id])
-    if @issue.update(issue_params)
+    if @issue.update_attributes(issue_params)
       redirect_to @issue
     else
       render :edit
