@@ -31,6 +31,10 @@
       <%= alert %>
     </p>
     <div class='content'>
+    <ul class="hmenu">
+      <%= render 'devise/menu/registration_items' %>
+      <%= render 'devise/menu/login_items' %>
+    </ul>
       <%= yield %>
     </div>
   </body>
