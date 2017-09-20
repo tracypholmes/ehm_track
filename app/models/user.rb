@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
          
   # has_many :user_issues
-  has_many :issues, through: :user_issue
+  has_many :issues
   has_many :medications, through: :issue
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
