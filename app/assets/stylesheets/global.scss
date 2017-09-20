@@ -1,12 +1,21 @@
-body {
-  margin: 0;
-}
+// body {
+//   margin: 0;
+// }
 
 .content {
   margin: 10px auto;
   width: 70%;
 }
 
-.clearfix {
-  overflow: hidden;
+ul.hmenu {
+  list-style: none;
+  margin: 0 0 2em;
+  padding: 0;
 }
+
+ul.hmenu li {
+  display: inline;
+}
+// .clearfix {
+//   overflow: hidden;
+// }
