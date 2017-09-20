@@ -16,13 +16,12 @@ IssuesController#index
         <%= issue.date_started %>
       </td>
       <td>
+        <%= link_to 'Show', issue %><br/>
         <%= link_to "Edit Issue", edit_issue_path(issue)%>
-      </td>
-      <td>
-        <%= link_to 'Delete Issue', issue, method: :delete %>
+        <%= link_to 'Delete Issue', issue, method: :delete, data: { confirm: 'Are you sure?' } %>
       </td>
     </tr>
     <% end %>
 </table>
 <!-- I need a button here that will allow the user to add a new issue. -->
-
+<%= link_to 'New Issue', new_issue_path %>
