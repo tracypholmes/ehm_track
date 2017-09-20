@@ -1,14 +1,14 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :authenticate_user!, :configure_permitted_parameters, if: :devise_controller?
-  # helper_method :user_signed_in?, :current_user, :user_session
+  helper_method :user_signed_in?, :current_user, :user_session
 
   # The Helper methods needed to help us in our controllers and our views
   #   is_logged_in?
   #   current_user
   #   authenticate_user! (if user isn't logged in, send them to a login screen)
   def index
-    render html: "Welcome!"
+    
   end
 
   # private
@@ -18,13 +18,14 @@ class ApplicationController < ActionController::Base
   #   @current_user ||= User.find_by(id: session[:user_id])
   # end
 
-  # def logged_in?
-  #   !current_user.nil?
+  # def user_signed_in?
+  #   !!current_user
   # end
 
   # def authenticate_user!
-  #   redirect_to new_session_path unless logged_in?
+  #   redirect_to new_view_session_path unless user_signed_in?
   # end
+  
   protected
 
   def configure_permitted_parameters
