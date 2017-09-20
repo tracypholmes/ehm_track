@@ -7,21 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <header class='clearfix'>
-    <div class="left-nav">
-      <ul>
-        <li>
-          <%= link_to "Home", issues_path %>
-        </li>
-      </ul>
-    </div>
-    <div class="right-nav">
-      <ul>
-        <li>
-          <%= link_to "Add Issue", new_issue_path %>
-        </li>
-      </ul>
-    </div>
+  <header>
   </header>
   <body>
     <p class="notice">
@@ -31,9 +17,10 @@
       <%= alert %>
     </p>
     <div class='content'>
-    <ul class="hmenu">
-      <%= render 'devise/menu/registration_items' %>
-      <%= render 'devise/menu/login_items' %>
+      <ul class="hmenu">
+        <%= link_to "Home", issues_path %>
+        <%= render 'devise/menu/registration_items' %>
+        <%= render 'devise/menu/login_items' %>
     </ul>
       <%= yield %>
     </div>
