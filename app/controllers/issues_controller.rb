@@ -1,5 +1,5 @@
 class IssuesController < ApplicationController
-  # before_action :authenticate_user!
+  before_action :authenticate_user!
 
   def index
     @issues = Issue.all
@@ -16,6 +16,7 @@ class IssuesController < ApplicationController
 
   def create
     @issue = Issue.new(issue_params)
+    @issue.user = current_user
     if @issue.save
       redirect_to @issue
     else
