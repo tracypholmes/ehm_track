@@ -5,12 +5,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
          
-  has_many :user_issue
-  has_many :issue, through: :user_issue
+  # has_many :user_issues
+  has_many :issues, through: :user_issue
   has_many :medications, through: :issue
 
-  validates :username, presence: true, uniqueness: true
-  validates :username, uniqueness: { case_sensitive: false }
+  validates :username, presence: true, uniqueness: { case_sensitive: false }
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   
   def self.from_omniauth(access_token)
