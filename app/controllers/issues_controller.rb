@@ -14,6 +14,10 @@ class IssuesController < ApplicationController
     render :new
   end
 
+  def edit
+    @issue = Issue.find(params[:id])
+  end
+  
   def create
     @issue = Issue.new(issue_params)
     @issue.user = current_user
@@ -22,10 +26,6 @@ class IssuesController < ApplicationController
     else
       render :new
     end
-  end
-
-  def edit
-    @issue = Issue.find(params[:id])
   end
 
   def update
@@ -46,6 +46,6 @@ class IssuesController < ApplicationController
   private
 
   def issue_params
-    params.require(:issue).permit(:issue_name, :date_started)
+    params.require(:issue).permit(:issue_name, :date_started, :notes)
   end
 end
