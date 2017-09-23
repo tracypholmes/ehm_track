@@ -1,3 +1,13 @@
-<h1>You've officially found me again but now i'm medicine!</h1>
+Here's that issue you wanted to see!
+<h1><%= @issue.issue_name %></h1>
 
-show and tell ya'll. MedicationsController#Show be my name.
+<!-- <h3>Issue</h3>
+<p><%= @issue.issue_name %></p> -->
+
+<h3>Issue Date</h3>
+<p><%= @issue.date_started %></p>
+
+<h3>Notes</h3>
+<p><%= @issue.notes %></p>
+
+<%= link_to 'Go Back', issues_path %>
