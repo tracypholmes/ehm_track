@@ -24,6 +24,10 @@
     <%= f.date_field :date_started %>
   </div>
   <div>
+    <%= f.label :notes %>
+    <%= f.text_area :notes, size: '60x6' %>
+  </div>
+  <div>
     <%= f.submit %>
   </div>
 <% end %>
