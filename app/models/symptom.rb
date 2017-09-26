@@ -1,3 +1,4 @@
 class Symptom < ApplicationRecord
-  belongs_to :user_issue
+  has_many :issue_symptoms
+  has_many :issues, through: :issue_symptoms
 end
