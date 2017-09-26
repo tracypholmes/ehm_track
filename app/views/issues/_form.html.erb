@@ -29,11 +29,9 @@
   </div>
   <div class="field">
     <%= f.label "Please select all relevant symptoms" %><br />
-    <%= f.collection_check_boxes :symptom_ids, Symptom.all, :id, :name do |b| %>
-      <div class="collection-check-box">
+    <%= f.collection_check_boxes :symptom_ids, Symptom.all, :id, :symptom_name do |b| %>
         <%= b.check_box %>
         <%= b.label %>
-      </div>
     <% end %>
   </div>
 
