@@ -4,10 +4,11 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, omniauth_providers: [:google_oauth2]
-         
-  # has_many :user_issues
+
   has_many :issues
-  has_many :medications, through: :issue
+  has_many :symptoms, through: :issues
+  has_many :medications
+  has_many :medications, through: :issues
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
