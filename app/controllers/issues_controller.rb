@@ -46,6 +46,6 @@ class IssuesController < ApplicationController
   private
 
   def issue_params
-    params.require(:issue).permit(:issue_name, :date_started, :notes)
+    params.require(:issue).permit(:issue_name, :date_started, :notes, symptom_ids:[])
   end
 end
