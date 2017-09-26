@@ -10,4 +10,11 @@ Here's that issue you wanted to see!
 <h3>Notes</h3>
 <p><%= @issue.notes %></p>
 
+<h3>Symptoms</h3>
+<p>
+  <% @issue.symptoms.each do |s| %>
+       <%= s.symptom_name %>
+     <% end %>
+</p>
+
 <%= link_to 'Go Back', issues_path %>
