@@ -27,6 +27,16 @@
     <%= f.label :notes %>
     <%= f.text_area :notes, size: '60x6' %>
   </div>
+  <div class="field">
+    <%= f.label "Please select all relevant symptoms" %><br />
+    <%= f.collection_check_boxes :symptom_ids, Symptom.all, :id, :name do |b| %>
+      <div class="collection-check-box">
+        <%= b.check_box %>
+        <%= b.label %>
+      </div>
+    <% end %>
+  </div>
+
   <div>
     <%= f.submit %>
   </div>
