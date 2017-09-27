@@ -2,11 +2,15 @@ class IssuesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @issues = Issue.all
+    @issues = current_user.issues.all
   end
 
   def show
     @issue = Issue.find_by(id: params[:id])
+    if current_user.id != @issue.user_id
+      flash[:notice] = "Stop being nosy!!"
+      redirect_to issues_path(session[:current_user])
+    end
   end
 
   def new
