@@ -14,7 +14,10 @@ Here's that issue you wanted to see!
 <p>
   <% @issue.symptoms.each do |s| %>
        <%= s.symptom_name %>
-     <% end %>
+  <% end %>
 </p>
+<!-- <p>
+  <%= @issue.medication %>
+</p> -->
 
 <%= link_to 'Go Back', issues_path %>
