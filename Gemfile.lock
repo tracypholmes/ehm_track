@@ -1,4 +1,12 @@
 GIT
+  remote: git://github.com/stympy/faker.git
+  revision: dfb0762fffe7cd5ba80a6de726e063b2bf6e6240
+  branch: master
+  specs:
+    faker (1.8.4)
+      i18n (~> 0.5)
+
+GIT
   remote: https://github.com/activeadmin/activeadmin.git
   revision: 6038ea6f8fd048926d59ba2c8c29ca2c40d1d41a
   specs:
@@ -97,8 +105,11 @@ GEM
       railties (>= 3.2, < 5.2)
     erubi (1.6.1)
     execjs (2.7.0)
-    faker (1.8.4)
-      i18n (~> 0.5)
+    factory_girl (4.8.0)
+      activesupport (>= 3.0.0)
+    factory_girl_rails (4.8.0)
+      factory_girl (~> 4.8.0)
+      railties (>= 3.0.0)
     faraday (0.12.2)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
@@ -254,6 +265,8 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    shoulda-matchers (3.1.2)
+      activesupport (>= 4.0.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -305,7 +318,8 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   devise
   dotenv-rails
-  faker
+  factory_girl_rails
+  faker!
   jbuilder (~> 2.5)
   listen (>= 3.0.5, < 3.2)
   omniauth-google-oauth2
@@ -315,6 +329,7 @@ DEPENDENCIES
   rails (~> 5.1.2)
   rspec-rails (~> 3.4)
   sass-rails (~> 5.0)
+  shoulda-matchers (~> 3.1)
   spring
   spring-watcher-listen (~> 2.0.0)
   sqlite3
