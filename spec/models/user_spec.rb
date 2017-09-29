@@ -5,7 +5,7 @@ RSpec.describe User, type: :model do
     user = User.new(
       username: 'prichols',
       email: 'prichols@prichols.me',
-      password: 'patsword',
+      password: 'patsword'
     )
     expect(user).to be_valid
   end
@@ -24,13 +24,11 @@ RSpec.describe User, type: :model do
   it 'is invalid with a duplicate email address' do
     User.create(
       username: 'prichols',
-      email: 'prichols@prichols.me',
-      password: 'patsword',
+      email: 'prichols@prichols.me'
     )
     user = User.new(
-      username: 'prichols',
-      email: 'prichols@prichols.me',
-      password: 'patsword',
+      username: 'ptrichols',
+      email: 'prichols@prichols.me'
     )
     expect(user).to_not be_valid
   end
