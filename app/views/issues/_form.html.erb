@@ -34,6 +34,12 @@
         <%= b.label %>
     <% end %>
   </div>
+  <div class="field">
+    <%= f.label "Please add any medications related to this issue." %><br />
+    <%= f.fields_for :medications, @issue.medications.build do |medications_fields| %>
+      <%= medications_fields.text_field :medication_name %>
+    <% end %>
+  </div>
 
   <div>
     <%= f.submit %>
