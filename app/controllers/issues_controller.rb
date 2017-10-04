@@ -50,6 +50,6 @@ class IssuesController < ApplicationController
   private
 
   def issue_params
-    params.require(:issue).permit(:issue_name, :date_started, :notes, symptom_ids:[])
+    params.require(:issue).permit(:issue_name, :date_started, :notes, symptom_ids:[], medications_attributes: [:medication_name])
   end
 end
