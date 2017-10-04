@@ -35,8 +35,9 @@
     <% end %>
   </div>
   <div class="field">
-    <%= fields_for :issue_medications do |im| %>
-      <%= f.label "Please add any medications related to this issue." %><br />
+    <!-- tried changing this to :medications, and the text field stopped showing up! -->
+    <%= f.fields_for :issue_medications do |im| %> 
+      <%= im.label "Please add any medications related to this issue." %><br />
       <%= im.text_field :medication_name %>
     <% end %>
   </div>
