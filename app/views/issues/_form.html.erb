@@ -35,9 +35,9 @@
     <% end %>
   </div>
   <div class="field">
-    <%= f.label "Please add any medications related to this issue." %><br />
-    <%= f.fields_for :medications, @issue.medications.build do |medications_fields| %>
-      <%= medications_fields.text_field :medication_name %>
+    <%= fields_for :issue_medications do |im| %>
+      <%= f.label "Please add any medications related to this issue." %><br />
+      <%= im.text_field :medication_name %>
     <% end %>
   </div>
 
