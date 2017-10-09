@@ -4,7 +4,7 @@ class IssuesController < ApplicationController
   def index
     @issues = current_user.issues.all
   end
-
+  
   def show
     @issue = Issue.find_by(id: params[:id])
     if current_user.id != @issue.user_id
@@ -12,9 +12,10 @@ class IssuesController < ApplicationController
       redirect_to issues_path(session[:current_user])
     end
   end
-
+  
   def new
     @issue = Issue.new
+    @issue_medications = @issue.issue_medications.build
     render :new
   end
 
@@ -55,7 +56,7 @@ class IssuesController < ApplicationController
       :date_started, 
       :notes, 
       symptom_ids: [], 
-      medications_attributes: [:medication_name]
+      issue_medication_attributes: [:dosage]
     )
   end
 end
