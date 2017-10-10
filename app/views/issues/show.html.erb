@@ -18,8 +18,8 @@ Here's that issue you wanted to see!
 </p>
 <h3>Medications should go here</h3>
 <p>
-  <%= @issue.medications.each do |m| %>
-    <%= m.dosage %>
+  <% @issue.medications.each do |m| %>
+    <%= m.medication_name %>
   <% end %>  
 </p>
 
