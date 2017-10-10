@@ -58,7 +58,8 @@ class IssuesController < ApplicationController
       :date_started, 
       :notes, 
       symptom_ids: [], 
-      medications_attributes: [:medication_name]
+      medications_attributes: [:medication_name],
+      # issue_medications_attributes: [:first_taken, :frequency, :dosage]
     )
   end
 end
