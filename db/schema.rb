@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170925025132) do
+ActiveRecord::Schema.define(version: 20171010005527) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -46,11 +46,13 @@ ActiveRecord::Schema.define(version: 20170925025132) do
   create_table "issue_medications", force: :cascade do |t|
     t.integer "issue_id"
     t.integer "medication_id"
-    t.integer "dosage"
+    t.date "first_taken"
     t.string "frequency"
-    t.date "date_started"
+    t.integer "dosage"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["issue_id"], name: "index_issue_medications_on_issue_id"
+    t.index ["medication_id"], name: "index_issue_medications_on_medication_id"
   end
 
   create_table "issue_symptoms", force: :cascade do |t|
@@ -77,15 +79,6 @@ ActiveRecord::Schema.define(version: 20170925025132) do
 
   create_table "symptoms", force: :cascade do |t|
     t.string "symptom_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "user_issues", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "issue_id"
-    t.integer "symptom_id"
-    t.text "notes"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
