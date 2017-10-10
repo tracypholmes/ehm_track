@@ -31,14 +31,13 @@
     <%= f.label "Please select all relevant symptoms" %><br />
     <%= f.collection_check_boxes :symptom_ids, Symptom.all, :id, :symptom_name do |b| %>
         <%= b.check_box %>
-        <%= b.label %>
+        <%= b.label %><br />
     <% end %>
   </div>
   <div class="field">
-    <!-- tried changing this to :medications, and the text field stopped showing up! -->
-    <%= f.fields_for @issue_medications do |im| %> 
-      <%= im.label "DSAGE TEST Please add any medications related to this issue." %><br />
-      <%= im.text_field :dosage %>
+    <%= f.label "Please add any medications related to this issue." %><br />
+    <%= f.fields_for :medications do |medications_fields| %> 
+      <%= medications_fields.text_field :medication_name %>
     <% end %>
   </div>
 
