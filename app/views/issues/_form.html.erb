@@ -30,8 +30,8 @@
   <div class="field">
     <%= f.label "Please select all relevant symptoms" %><br />
     <%= f.collection_check_boxes :symptom_ids, Symptom.all, :id, :symptom_name do |b| %>
-        <%= b.check_box %>
-        <%= b.label %><br />
+      <%= b.label %>
+      <%= b.check_box %><br />
     <% end %>
   </div>
   <div class="field">
@@ -40,7 +40,7 @@
       <%= medications_fields.label :medication_name %>
       <%= medications_fields.text_field :medication_name %><br />
    
-    <!-- <%= medications_fields.fields_for :issue_medications do |issue_medications_fields| %>
+      <%= medications_fields.fields_for :issue_medications do |issue_medications_fields| %>
     
         <%= issue_medications_fields.label :first_taken %>
         <%= issue_medications_fields.date_field :first_taken %><br />
@@ -51,7 +51,7 @@
         <%= issue_medications_fields.label :frequency %>
         <%= issue_medications_fields.text_field :frequency %><br />
                 
-      <% end %> -->
+      <% end %>
     <% end %>
   </div>
 
