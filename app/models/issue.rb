@@ -12,6 +12,7 @@ class Issue < ApplicationRecord
   
   def medications_attributes=(medication_attributes)
     medication_attributes.values.each do |medication_attribute|
+      # binding.pry
       medication = Medication.find_or_create_by(medication_attribute)
       self.medications << medication
     end
