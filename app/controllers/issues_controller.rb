@@ -16,7 +16,8 @@ class IssuesController < ApplicationController
   def new
     @issue = Issue.new
     2.times do
-      @issue.medications.build
+      medication = @issue.medications.build
+      medication.issue_medications.build 
     end
     render :new
   end
@@ -54,12 +55,18 @@ class IssuesController < ApplicationController
 
   def issue_params
     params.require(:issue).permit(
-      :issue_name, 
-      :date_started, 
-      :notes, 
-      symptom_ids: [], 
-      medications_attributes: [:medication_name],
-      # issue_medications_attributes: [:first_taken, :frequency, :dosage]
+      :issue_name,
+      :date_started,
+      :notes,
+      symptom_ids: [],
+      medications_attributes: [
+        :medication_name,
+        issue_medications_attributes: [
+          :first_taken,
+          :frequency,
+          :dosage
+        ]
+      ]
     )
   end
 end
