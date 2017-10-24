@@ -12,93 +12,96 @@
 
 ActiveRecord::Schema.define(version: 20170925025132) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_admin_comments", force: :cascade do |t|
-    t.string "namespace"
-    t.text "body"
-    t.string "resource_type"
-    t.integer "resource_id"
-    t.string "author_type"
-    t.integer "author_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id"
-    t.index ["namespace"], name: "index_active_admin_comments_on_namespace"
-    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id"
+    t.string   "namespace"
+    t.text     "body"
+    t.string   "resource_type"
+    t.integer  "resource_id"
+    t.string   "author_type"
+    t.integer  "author_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+    t.index ["author_type", "author_id"], name: "index_active_admin_comments_on_author_type_and_author_id", using: :btree
+    t.index ["namespace"], name: "index_active_admin_comments_on_namespace", using: :btree
+    t.index ["resource_type", "resource_id"], name: "index_active_admin_comments_on_resource_type_and_resource_id", using: :btree
   end
 
   create_table "admin_users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_admin_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
   end
 
   create_table "issue_symptoms", force: :cascade do |t|
-    t.integer "issue_id"
-    t.integer "symptom_id"
+    t.integer  "issue_id"
+    t.integer  "symptom_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "issues", force: :cascade do |t|
-    t.string "issue_name"
-    t.date "date_started"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "user_id"
-    t.text "notes"
+    t.string   "issue_name"
+    t.date     "date_started"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.integer  "user_id"
+    t.text     "notes"
   end
 
   create_table "symptoms", force: :cascade do |t|
-    t.string "symptom_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "symptom_name"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "username"
-    t.index ["email"], name: "index_users_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
-    t.index ["username"], name: "index_users_on_username", unique: true
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "username"
+    t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+    t.index ["username"], name: "index_users_on_username", unique: true, using: :btree
   end
 
   create_table "views", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+    t.string   "email",                  default: "", null: false
+    t.string   "encrypted_password",     default: "", null: false
+    t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer "sign_in_count", default: 0, null: false
+    t.integer  "sign_in_count",          default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
-    t.string "current_sign_in_ip"
-    t.string "last_sign_in_ip"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["email"], name: "index_views_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.index ["email"], name: "index_views_on_email", unique: true, using: :btree
+    t.index ["reset_password_token"], name: "index_views_on_reset_password_token", unique: true, using: :btree
   end
 
 end
