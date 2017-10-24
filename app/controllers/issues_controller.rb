@@ -15,10 +15,7 @@ class IssuesController < ApplicationController
   
   def new
     @issue = Issue.new
-    2.times do
-      symptom = @issue.symptoms.build
-  
-    end
+    symptom = @issue.symptoms.build
     render :new
   end
 
@@ -60,7 +57,9 @@ class IssuesController < ApplicationController
       :notes,
       symptom_ids: [],
       symptoms_attributes: [
+        :id,
         :symptom_name,
+        :_destroy
       ]
     )
   end
