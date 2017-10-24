@@ -30,28 +30,17 @@
   <div class="field">
     <%= f.label "Please select all relevant symptoms" %><br />
     <%= f.collection_check_boxes :symptom_ids, Symptom.all, :id, :symptom_name do |b| %>
-      <%= b.label %>
-      <%= b.check_box %><br />
+      <p>
+        <%= b.check_box %>
+        <%= b.label %>
+      </p>
     <% end %>
   </div>
   <div class="field">
-    <%= f.label "Please add any medications related to this issue." %><br />
-    <%= f.fields_for :medications do |medications_fields| %> 
-      <%= medications_fields.label :medication_name %>
-      <%= medications_fields.text_field :medication_name %><br />
-   
-      <%= medications_fields.fields_for :issue_medications do |issue_medications_fields| %>
-    
-        <%= issue_medications_fields.label :first_taken %>
-        <%= issue_medications_fields.date_field :first_taken %><br />
-        
-        <%= issue_medications_fields.label :dosage %>
-        <%= issue_medications_fields.number_field :dosage %><br />
-        
-        <%= issue_medications_fields.label :frequency %>
-        <%= issue_medications_fields.text_field :frequency %><br />
-                
-      <% end %>
+    <%= f.label "Please add any additional symptoms related to this issue." %><br />
+    <%= f.fields_for :symptoms, Symptom.new do |symptoms_fields| %> 
+      <%= symptoms_fields.label :symptom_name %>
+      <%= symptoms_fields.text_field :symptom_name %><br />
     <% end %>
   </div>
 
