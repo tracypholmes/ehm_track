@@ -35,23 +35,10 @@
     <% end %>
   </div>
   <div class="field">
-    <%= f.label "Please add any medications related to this issue." %><br />
-    <%= f.fields_for :medications do |medications_fields| %> 
-      <%= medications_fields.label :medication_name %>
-      <%= medications_fields.text_field :medication_name %><br />
-   
-      <%= medications_fields.fields_for :issue_medications do |issue_medications_fields| %>
-    
-        <%= issue_medications_fields.label :first_taken %>
-        <%= issue_medications_fields.date_field :first_taken %><br />
-        
-        <%= issue_medications_fields.label :dosage %>
-        <%= issue_medications_fields.number_field :dosage %><br />
-        
-        <%= issue_medications_fields.label :frequency %>
-        <%= issue_medications_fields.text_field :frequency %><br />
-                
-      <% end %>
+    <%= f.label "Please add any symptoms related to this issue." %><br />
+    <%= f.fields_for :symptoms do |symptoms_fields| %> 
+      <%= symptoms_fields.label :symptom_name %>
+      <%= symptoms_fields.text_field :symptom_name %><br />
     <% end %>
   </div>
 

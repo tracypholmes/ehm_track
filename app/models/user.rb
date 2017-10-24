@@ -7,8 +7,6 @@ class User < ApplicationRecord
 
   has_many :issues
   has_many :symptoms, through: :issues
-  has_many :medications
-  has_many :medications, through: :issues
 
   validates :username, presence: true, uniqueness: { case_sensitive: false }
   validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
