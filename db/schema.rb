@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171010005527) do
+ActiveRecord::Schema.define(version: 20170925025132) do
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string "namespace"
@@ -43,18 +43,6 @@ ActiveRecord::Schema.define(version: 20171010005527) do
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
 
-  create_table "issue_medications", force: :cascade do |t|
-    t.integer "issue_id"
-    t.integer "medication_id"
-    t.date "first_taken"
-    t.string "frequency"
-    t.integer "dosage"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["issue_id"], name: "index_issue_medications_on_issue_id"
-    t.index ["medication_id"], name: "index_issue_medications_on_medication_id"
-  end
-
   create_table "issue_symptoms", force: :cascade do |t|
     t.integer "issue_id"
     t.integer "symptom_id"
@@ -69,12 +57,6 @@ ActiveRecord::Schema.define(version: 20171010005527) do
     t.datetime "updated_at", null: false
     t.integer "user_id"
     t.text "notes"
-  end
-
-  create_table "medications", force: :cascade do |t|
-    t.string "medication_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "symptoms", force: :cascade do |t|
