@@ -8,21 +8,21 @@ class User < ApplicationRecord
   has_many :issues
   has_many :symptoms, through: :issues
 
-  validates :username, presence: true, uniqueness: { case_sensitive: false }
-  validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
+  # validates :username, presence: true, uniqueness: { case_sensitive: false }
+  # validates_format_of :username, with: /^[a-zA-Z0-9_\.]*$/, :multiline => true
   
   def self.from_omniauth(access_token)
     data = access_token.info
     user = User.where(email: data['email']).first
 
     # Uncomment the section below if you want users to be created if they don't exist
-    # unless user
-    #     user = User.create(
-    #        email: data['email'],
-    #        password: Devise.friendly_token[0,20]
-    #     )
-    # end
-    # user
+    unless user
+        user = User.create(
+           email: data['email'],
+           password: Devise.friendly_token[0,20]
+        )
+    end
+    user
   end
   
   # def self.find_for_database_authentication(warden_conditions)
