@@ -8,8 +8,10 @@ class Issue < ApplicationRecord
 
   def symptoms_attributes=(symptom_attributes)
     symptom_attributes.values.each do |symptom_attribute|
-      symptom = Symptom.find_or_create_by(symptom_attribute)
-      self.symptoms << symptom
+      if symptom_attribute[:symptom_name].present? 
+        symptom = Symptom.find_or_create_by(symptom_attribute)
+        self.symptoms << symptom
+      end
     end
   end
 end
