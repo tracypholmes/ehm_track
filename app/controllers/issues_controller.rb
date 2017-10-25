@@ -15,7 +15,7 @@ class IssuesController < ApplicationController
   
   def new
     @issue = Issue.new
-    symptom = @issue.symptoms.build
+    @issue.symptoms.build
     render :new
   end
 
@@ -27,7 +27,7 @@ class IssuesController < ApplicationController
     @issue = Issue.new(issue_params)
     @issue.user = current_user
     if @issue.save
-      redirect_to @issue
+      redirect_to @issue, notice: 'Your issue was successfully created.'
     else
       render :new
     end
@@ -45,7 +45,7 @@ class IssuesController < ApplicationController
   def destroy
     @issue = Issue.find(params[:id])
     @issue.destroy
-    redirect_to issues_path
+    redirect_to issues_path, notice: 'Your issue was successfully deleted.'
   end
 
   private
