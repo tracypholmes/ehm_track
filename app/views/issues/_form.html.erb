@@ -41,11 +41,6 @@
     <%= f.fields_for :symptoms, Symptom.new do |symptoms_fields| %> 
       <%= symptoms_fields.label :symptom_name %>
       <%= symptoms_fields.text_field :symptom_name %><br />
-      
-      <%= symptoms_fields.fields_for :issue_symptoms do |sf| %>
-        <%= sf.label :date_symptom_added %>
-        <%= sf.date_field :date_symptom_added %>
-      <% end %>          
     <% end %>
   </div>
 

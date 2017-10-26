@@ -60,10 +60,7 @@ class IssuesController < ApplicationController
       symptoms_attributes: [
         :id,
         :symptom_name,
-        :_destroy,
-        issue_symptoms_attributes: [
-          :date_symptom_added
-        ]
+        :_destroy
       ]
     )
   end
