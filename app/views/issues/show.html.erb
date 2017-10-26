@@ -16,6 +16,9 @@ Here's that issue you wanted to see!
   <li>
     <%= s.symptom_name %>
   </li>
+    <%= @issue.issue_symptoms.each do |i| %>
+      <%= i.date_symptom_added %>
+    <% end %>
   <% end %>
 </p>
 
