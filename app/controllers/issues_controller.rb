@@ -16,6 +16,7 @@ class IssuesController < ApplicationController
   def new
     @issue = Issue.new
     @issue.symptoms.build
+    # @issue.issue_symptoms.build
     render :new
   end
 
@@ -59,7 +60,10 @@ class IssuesController < ApplicationController
       symptoms_attributes: [
         :id,
         :symptom_name,
-        :_destroy
+        :_destroy,
+        issue_symptoms_attributes: [
+          :date_symptom_added
+        ]
       ]
     )
   end

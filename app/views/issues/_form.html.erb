@@ -19,28 +19,33 @@
     <%= f.label :name %>
     <%= f.text_field :issue_name %>
   </div>
+  
   <div>
     <%= f.label :date_started %>
     <%= f.date_field :date_started %>
   </div>
+  
   <div>
     <%= f.label :notes %>
     <%= f.text_area :notes, size: '60x6' %>
   </div>
+  
   <div class="field">
-    <%= f.label "Please select all relevant symptoms" %><br />
+    <br><%= f.label "Please select all relevant symptoms and/or add any additional symptoms related to this issue." %><br />
     <%= f.collection_check_boxes :symptom_ids, Symptom.all, :id, :symptom_name do |b| %>
       <p>
         <%= b.check_box %>
         <%= b.label %>
       </p>
     <% end %>
-  </div>
-  <div class="field">
-    <%= f.label "Please add any additional symptoms related to this issue." %><br />
     <%= f.fields_for :symptoms, Symptom.new do |symptoms_fields| %> 
       <%= symptoms_fields.label :symptom_name %>
       <%= symptoms_fields.text_field :symptom_name %><br />
+      
+      <%= symptoms_fields.fields_for :issue_symptoms do |sf| %>
+        <%= sf.label :date_symptom_added %>
+        <%= sf.date_field :date_symptom_added %>
+      <% end %>          
     <% end %>
   </div>
 
