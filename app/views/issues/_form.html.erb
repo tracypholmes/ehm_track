@@ -42,6 +42,12 @@
       <%= symptoms_fields.label :symptom_name %>
       <%= symptoms_fields.text_field :symptom_name %><br />
     <% end %>
+    <div class="field">
+      <%= f.label "Please add any medications related to this issue." %><br />
+      <%= f.fields_for :medications do |medications_fields| %>
+        <%= medications_fields.text_field :medication_name %>
+      <% end %>
+    </div>
   </div>
 
   <div>
