@@ -52,6 +52,7 @@
         <%= mf.fields_for :medications_attributes do |m| %>
           <%= m.label :medication_name %>
           <%= m.text_field :medication_name %>
+          <%= m.hidden_field :user_id, value: current_user.id %>
         <% end %>
       <% end %>
     </div>

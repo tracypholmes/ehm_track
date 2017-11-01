@@ -4,11 +4,11 @@ class IssueMedication < ApplicationRecord
   
   
   def medications_attributes=(medication_attributes)
-    medication_attributes.values.each do |medication_attribute|
+    # medication_attributes.values.each do |medication_attribute|
       if medication_attributes[:medication_name].present?
-        medication = Medication.find_or_create_by(medication_name: medication_attribute)
+        medication = Medication.create(medication_attributes)
         self.medication = medication
       end
-    end
+    # end
   end
 end

@@ -5,6 +5,7 @@ class Issue < ApplicationRecord
   has_many :issue_medications
   has_many :medications, through: :issue_medications
   accepts_nested_attributes_for :issue_medications
+  accepts_nested_attributes_for :medications
 
   validates :issue_name, presence: true
   validates :date_started, presence: true
