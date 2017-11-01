@@ -5,9 +5,9 @@ class IssueMedication < ApplicationRecord
   
   def medications_attributes=(medication_attributes)
     medication_attributes.values.each do |medication_attribute|
-      if medication_attribute[:medication_name].present?
-        medication = Medication.find_or_create_by(medication_attribute)
-        self.medications << medication
+      if medication_attributes[:medication_name].present?
+        medication = Medication.find_or_create_by(medication_name: medication_attribute)
+        self.medication = medication
       end
     end
   end

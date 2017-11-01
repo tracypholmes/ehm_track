@@ -49,7 +49,7 @@
         <%= mf.label "date medication began" %>
         <%= mf.date_field :date_med_started %><br />
   
-        <%= mf.fields_for :medications do |m| %>
+        <%= mf.fields_for :medications_attributes do |m| %>
           <%= m.label :medication_name %>
           <%= m.text_field :medication_name %>
         <% end %>
