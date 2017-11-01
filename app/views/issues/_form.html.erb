@@ -38,10 +38,23 @@
         <%= b.label %>
       </p>
     <% end %>
+    
     <%= f.fields_for :symptoms, Symptom.new do |symptoms_fields| %> 
       <%= symptoms_fields.label :symptom_name %>
       <%= symptoms_fields.text_field :symptom_name %><br />
     <% end %>
+    
+    <div class="field">
+      <%= f.fields_for :issue_medications do |mf| %>
+        <%= mf.label "date medication began" %>
+        <%= mf.date_field :date_med_started %><br />
+  
+        <%= mf.fields_for :medications_attributes do |m| %>
+          <%= m.label :medication_name %>
+          <%= m.text_field :medication_name %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
   <div>
