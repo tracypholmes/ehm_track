@@ -17,6 +17,7 @@ class IssuesController < ApplicationController
     @issue = Issue.new
     @issue.symptoms.build
     @issue.issue_medications.build.build_medication
+    # binding.pry
     render :new
   end
 
@@ -59,7 +60,7 @@ class IssuesController < ApplicationController
       symptom_ids: [],
       symptoms_attributes: [:id, :symptom_name, :_destroy], 
       issue_medications_attributes: [:id, :date_med_started, 
-        medications_attributes: [:medication_name]
+        medications_attributes: [:user_id, :medication_name]
       ])
   end
 end
