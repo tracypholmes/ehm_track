@@ -12,8 +12,15 @@ MedicationsController#index
       <td>
         <%= medication.medication_name %>
       </td>
-
-    </tr>
+      <td>
+        <% medication.issue_medications.each do |d| %>
+        <%= d.date_med_started %>
+       </td>
+      </tr>
+      <% end %>
     <% end %>
 </table>
+ 
+<%= link_to "All Issues", issues_path %>
+<%= link_to 'New Issue', new_issue_path %>
 
