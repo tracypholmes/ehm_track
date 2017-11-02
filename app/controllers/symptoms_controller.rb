@@ -1,3 +1,0 @@
-class SymptomsController < ApplicationController
-
-end

@@ -1,0 +1,18 @@
+<h1>Add A Medication</h1>
+
+<%= form_for @medication do |f| %>
+  <div>
+    <%= f.label :medication_name %>
+    <%= f.text_field :medication_name %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
+  </div>
+  <div>
+    <%= f.fields_for :issue_medications do |im| %>
+      <%= im.label :date_med_started %>
+      <%= im.date_field :date_med_started %>
+    <% end %>
+  </div>
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>

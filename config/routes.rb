@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   resources :users do
     member do
-      resources :medications, only: [:index]
+      resources :medications
     end
   end
   
