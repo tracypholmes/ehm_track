@@ -15,10 +15,16 @@ class MedicationsController < ApplicationController
     @medication = Medication.new(medication_params)
     @medication.user = current_user
     if @medication.save
-    redirect_to medications_path, notice: 'Your medication was successfully created.'
+    redirect_to @medication, notice: 'Your medication was successfully created.'
     else
       render :new
     end
+  end
+  
+  def destroy
+    @medication = Medication.find(params[:id])
+    @medication.destroy
+    redirect_to medications_path, notice: 'Your medication was successfully deleted.'
   end
   
   private
@@ -27,7 +33,7 @@ class MedicationsController < ApplicationController
     params.require(:medication).permit(
     :user_id,
     :medication_name,
-    issue_medications_attributes: [:id, :date_med_started]
+    issue_medications_attributes: [:date_med_started]
     )
   end
 end
