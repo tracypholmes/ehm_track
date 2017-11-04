@@ -15,7 +15,7 @@ class MedicationsController < ApplicationController
     @medication = Medication.new(medication_params)
     @medication.user = current_user
     if @medication.save
-    redirect_to @medication, notice: 'Your medication was successfully created.'
+    redirect_to medications_path, notice: 'Your medication was successfully created.'
     else
       render :new
     end

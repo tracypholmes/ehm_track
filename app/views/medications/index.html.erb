@@ -16,6 +16,9 @@ MedicationsController#index
         <% medication.issue_medications.each do |d| %>
           <%= d.date_med_started %>
        </td>
+      <td>
+        <%= link_to 'Delete Medication', medication, method: :delete, data: { confirm: 'Are you sure?' } %>
+      </td>
       </tr>
       <% end %>
     <% end %>

@@ -7,9 +7,13 @@ class IssuesController < ApplicationController
   
   def show
     @issue = Issue.find_by(id: params[:id])
-    if current_user.id != @issue.user_id
-      flash[:notice] = "Stop being nosy!!"
-      redirect_to issues_path(session[:current_user])
+    if @issue
+      if current_user.id != @issue.user_id
+        flash[:notice] = "Stop being nosy!!"
+        redirect_to issues_path(session[:current_user])
+      end
+    else
+      redirect_to issues_path, notice: "Ghost issue! You don't have that issue, Silly."
     end
   end
   
