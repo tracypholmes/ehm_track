@@ -22,4 +22,8 @@ class Issue < ApplicationRecord
   def no_future_date_started
     errors.add(:date_started, "cannot be a future date") if date_started.present? && date_started > Date.today
   end
+  
+  def self.most_recent(limit)
+    order("created_at desc").limit(limit)
+  end
 end
