@@ -16,16 +16,21 @@
     <p class="alert">
       <%= alert %>
     </p>
-    <div class='content'>
-      <ul class="hmenu">
-        <li><%= link_to "Home", issues_path %></li>
-        <% if current_user %>
-          <li><%= link_to "Your Medications", medications_path(current_user) %></li>
-        <% end %>  
+    <div class='container'>
+      <nav>
+        <div class="nav-wrapper">
+          <a href="#" class="brand-logo">eHM Track</a>
+          <ul id="nav-mobile" class="right hide-on-med-and-down">
+            <li><%= link_to "Home", issues_path %></li>
+            <% if current_user %>
+              <li><%= link_to "Your Medications", medications_path(current_user) %></li>
+            <% end %>  
 
-        <%= render 'devise/menu/registration_items' %>
-        <%= render 'devise/menu/login_items' %>
-    </ul>
+            <%= render 'devise/menu/registration_items' %>
+            <%= render 'devise/menu/login_items' %>
+          </ul>
+        </div>
+      </nav>
       <%= yield %>
     </div>
   </body>

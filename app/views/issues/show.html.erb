@@ -1,29 +1,48 @@
-Here's that issue you wanted to see!
-<h1><%= @issue.issue_name %></h1>
+<div class="card">
+  <div class="card-content">
+    <h1><%= @issue.issue_name %></h1>
+    <h5>Select each tab for additional information</h5>
+  </div>
+  <div class="card-tabs">
+    <ul class="tabs tabs-fixed-width">
+      <li class="tab">
+        <a href="#issue">Issue Date</a>
+      </li>
+      <li class="tab">
+        <a href="#notes">Notes</a>
+      </li>
+      <li class="tab">
+        <a href="#symp">Symptoms</a>
+      </li>
+      <li class="tab">
+        <a href="#meds">Medications</a>
+      </li>
+    </ul>
+  </div>
+  
+  <div class="card-content grey lighten-4">
+    <div id="issue">
+      <%= @issue.date_started %>
+    </div>
+    <div id="notes">
+      <%= @issue.notes %>
+    </div>
+    <div id="symp">
+      <% @issue.symptoms.each do |s| %>
+        <li>
+          <%= s.symptom_name %>
+        </li>
+        <% end %>
+    </div>
+    <div id="meds">
+      <% @issue.issue_medications.each do |im| %>
+        <%= im.medication.medication_name %> started on <%= im.date_med_started %>
+      <% end %>
+    </div>
+  </div>
 
-<!-- <h3>Issue</h3>
-<p><%= @issue.issue_name %></p> -->
-
-<h3>Issue Date</h3>
-<p><%= @issue.date_started %></p>
-
-<h3>Notes</h3>
-<p><%= @issue.notes %></p>
-
-<h3>Symptoms</h3>
-<p>
-  <% @issue.symptoms.each do |s| %>
-  <li>
-    <%= s.symptom_name %>
-  </li>
-  <% end %>
-</p>
-<h3>Medications</h3>
-<p>
-  <% @issue.issue_medications.each do |im| %>
-    <%= im.medication.medication_name %> started on <%= im.date_med_started %>
-  <% end %>
-</p>
-
-<%= link_to 'Go Back', issues_path %>
-<%= link_to "Edit Issue", edit_issue_path(@issue)%>
+  <div class="card-action">
+    <%= link_to 'Go Back', issues_path %>
+    <%= link_to "Edit Issue", edit_issue_path(@issue)%>
+  </div>
+</div>
