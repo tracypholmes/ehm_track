@@ -16,9 +16,9 @@
     <p class="alert">
       <%= alert %>
     </p>
-    <div class='container'>
-      <nav>
-        <div class="nav-wrapper">
+    <nav>
+      <div class="nav-wrapper">
+        <div class='container'>
           <a href="#" class="brand-logo">eHM Track</a>
           <ul id="nav-mobile" class="right hide-on-med-and-down">
             <li><%= link_to "Home", issues_path %></li>
@@ -30,8 +30,10 @@
             <%= render 'devise/menu/login_items' %>
           </ul>
         </div>
-      </nav>
+      </div>
+    </nav>
+    <div class="container">
       <%= yield %>
-    </div>
+      </div>
   </body>
 </html>
