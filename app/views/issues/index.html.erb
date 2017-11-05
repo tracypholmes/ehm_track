@@ -1,27 +1,29 @@
-IssuesController#index
-<h1>List of Issues</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Date Started</th>
-  </tr>
+<h1>List of Issues</h1>
+<p>Below is a list of your current health issues. Feel free to review, or add a new issue if needed.</p>
+
+<table class='highlight'>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date Started</th>
+    </tr>
+  </thead>
 
   <% @issues.each do |issue| %>
-    <tr>
-      <td>
-        <%= issue.issue_name %>
-      </td>
-      <td>
-        <%= issue.date_started %>
-      </td>
-      <td>
-        <%= link_to 'Show', issue %>
-        <%= link_to "Edit Issue", edit_issue_path(issue)%>
-        <%= link_to 'Delete Issue', issue, method: :delete, data: { confirm: 'Are you sure?' } %>
-      </td>
-    </tr>
+    <tbody>
+      <tr>
+        <td><%= issue.issue_name %></td>
+        <td><%= issue.date_started %></td>
+        <td>
+          <button class="waves-effect btn-flat"><%= link_to 'Show', issue %></button>
+          <button class="waves-effect btn-flat"><%= link_to 'Edit', edit_issue_path(issue)%></button>
+          <button class="waves-effect btn-flat"><%= link_to 'Delete', issue, method: :delete, data: { confirm: 'Are you sure?' } %></button>
+        </td>
+      </tr>
+    </tbody>
     <% end %>
 </table>
-<!-- I need a button here that will allow the user to add a new issue. -->
-<%= link_to 'New Issue', new_issue_path %>
+<button class="btn waves-effect" type="submit" name="action">
+  <%= link_to 'New Issue', new_issue_path %>
+</button>
