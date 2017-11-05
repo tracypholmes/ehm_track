@@ -1,0 +1,20 @@
+<nav>
+  <div class="nav-wrapper">
+    <div class='container'>
+      <a href="#" class="brand-logo">eHM Track</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li>
+          <%= link_to "Home", issues_path %>
+        </li>
+        <% if current_user %>
+          <li>
+            <%= link_to "Your Medications", medications_path(current_user) %>
+          </li>
+          <% end %>
+
+            <%= render 'devise/menu/registration_items' %>
+             <%= render 'devise/menu/login_items' %>
+      </ul>
+    </div>
+  </div>
+</nav>

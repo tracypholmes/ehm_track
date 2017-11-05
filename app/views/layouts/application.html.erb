@@ -10,30 +10,17 @@
   <header>
   </header>
   <body>
-    <p class="notice">
-      <%= notice %>
-    </p>
-    <p class="alert">
-      <%= alert %>
-    </p>
-    <nav>
-      <div class="nav-wrapper">
-        <div class='container'>
-          <a href="#" class="brand-logo">eHM Track</a>
-          <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><%= link_to "Home", issues_path %></li>
-            <% if current_user %>
-              <li><%= link_to "Your Medications", medications_path(current_user) %></li>
-            <% end %>  
-
-            <%= render 'devise/menu/registration_items' %>
-            <%= render 'devise/menu/login_items' %>
-          </ul>
-        </div>
+    <div class="card-content green-text"><%= notice %></div>
+    <div class="card-content red-text"><%= alert %></div>
+   
+    <%= render 'layouts/header' %>
+    
+    <main>
+      <div class="container">
+        <%= yield %>
       </div>
-    </nav>
-    <div class="container">
-      <%= yield %>
-      </div>
+    </main>
+    
+    <%= render 'layouts/footer' %>
   </body>
 </html>
