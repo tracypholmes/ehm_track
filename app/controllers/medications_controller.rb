@@ -33,7 +33,7 @@ class MedicationsController < ApplicationController
     params.require(:medication).permit(
     :user_id,
     :medication_name,
-    issue_medications_attributes: [:date_med_started]
+    issue_medications_attributes: [:id, :date_med_started]
     )
   end
 end
