@@ -14,7 +14,7 @@
     <tbody>
       <tr>
         <td><%= issue.issue_name %></td>
-        <td><%= issue.date_started %></td>
+        <td><%= issue.date_started.to_s(:long) %></td>
         <td>
           <button class="waves-effect btn-flat"><%= link_to 'Show', issue %></button>
           <button class="waves-effect btn-flat"><%= link_to 'Edit', edit_issue_path(issue)%></button>

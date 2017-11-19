@@ -1,6 +1,6 @@
 <div class="card">
   <div class="card-content">
-    <h1><%= @issue.issue_name %></h1>
+    <h1><%= @issue.issue_name.titleize %></h1>
     <h5>Select each tab for additional information</h5>
   </div>
   <div class="card-tabs">
@@ -22,21 +22,21 @@
   
   <div class="card-content grey lighten-4">
     <div id="issue">
-      <%= @issue.date_started %>
+      <%= @issue.date_started.to_s(:long) %>
     </div>
     <div id="notes">
-      <%= @issue.notes %>
+      <%= @issue.notes.humanize %>
     </div>
     <div id="symp">
       <% @issue.symptoms.each do |s| %>
         <li>
-          <%= s.symptom_name %>
+          <%= s.symptom_name.titleize %>
         </li>
         <% end %>
     </div>
     <div id="meds">
       <% @issue.issue_medications.each do |im| %>
-        <%= im.medication.medication_name %> started on <%= im.date_med_started %>
+        <%= im.medication.medication_name.humanize %> started on <%= im.date_med_started.to_s(:long) %>
       <% end %>
     </div>
   </div>
